@@ -15,7 +15,6 @@
  */
 package simplejcqrs.gae.client;
 
-import java.util.Date;
 import java.util.List;
 
 import simplejcqrs.gae.shared.ContactInfo;

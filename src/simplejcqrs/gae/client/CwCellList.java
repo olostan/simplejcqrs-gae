@@ -16,10 +16,8 @@
 package simplejcqrs.gae.client;
 
 import java.util.Date;
-import java.util.concurrent.Callable;
 
 import simplejcqrs.gae.shared.ContactInfo;
-import sun.awt.HorizBagLayout;
 
 import com.google.gwt.cell.client.AbstractCell;
 import com.google.gwt.core.client.GWT;
