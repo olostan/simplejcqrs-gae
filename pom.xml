@@ -16,4 +16,12 @@
       </plugin>
     </plugins>
   </build>
+  <dependencies>
+  	<dependency>
+  		<groupId>simplejcqrs</groupId>
+  		<artifactId>simplejcqrs</artifactId>
+  		<version>1.0-SNAPSHOT</version>
+  		<optional>false</optional>
+  	</dependency>
+  </dependencies>
 </project>
