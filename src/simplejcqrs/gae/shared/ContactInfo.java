@@ -2,9 +2,15 @@ package simplejcqrs.gae.shared;
 
 import java.util.Date;
 
+import javax.jdo.annotations.IdGeneratorStrategy;
+import javax.jdo.annotations.PersistenceCapable;
+import javax.jdo.annotations.Persistent;
+import javax.jdo.annotations.PrimaryKey;
+
 import com.google.gwt.user.client.rpc.IsSerializable;
 import com.google.gwt.view.client.ProvidesKey;
 
+@PersistenceCapable
 public class ContactInfo implements Comparable<ContactInfo>, IsSerializable {
     
     /**
@@ -16,17 +22,25 @@ public class ContactInfo implements Comparable<ContactInfo>, IsSerializable {
       }
     };
     
-    private static int nextId = 0;
-    
+  
+    @Persistent
     private String address;
+    @Persistent
     private Date birthday;
+    @Persistent
     private String firstName;
-    private int id;
+
+    @PrimaryKey
+    @Persistent(valueStrategy = IdGeneratorStrategy.IDENTITY)
+    private String id;
+    
+    @Persistent
     private String lastName;
 
-    public ContactInfo() {
-      this.id = nextId;
-      nextId++;      
+    public ContactInfo() {           
+    }
+    public ContactInfo(String id) {
+    	this.id = id;
     }
     
     public int compareTo(ContactInfo o) {
@@ -72,7 +86,7 @@ public class ContactInfo implements Comparable<ContactInfo>, IsSerializable {
     /**
      * @return the unique ID of the contact
      */
-    public int getId() {
+    public String getId() {
       return this.id;
     }
     
@@ -85,7 +99,7 @@ public class ContactInfo implements Comparable<ContactInfo>, IsSerializable {
     
     @Override
     public int hashCode() {
-      return id;
+      return id.hashCode();
     }
     /**
      * Set the contact's address.

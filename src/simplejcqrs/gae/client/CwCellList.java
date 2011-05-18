@@ -31,6 +31,7 @@ import com.google.gwt.uibinder.client.UiField;
 import com.google.gwt.user.cellview.client.CellList;
 import com.google.gwt.user.cellview.client.HasKeyboardPagingPolicy.KeyboardPagingPolicy;
 import com.google.gwt.user.cellview.client.HasKeyboardSelectionPolicy.KeyboardSelectionPolicy;
+import com.google.gwt.user.client.Random;
 import com.google.gwt.user.client.ui.AbstractImagePrototype;
 import com.google.gwt.user.client.ui.Button;
 import com.google.gwt.user.client.ui.Composite;
@@ -237,7 +238,7 @@ public class CwCellList extends Composite {
 	      addButton.addClickHandler(new ClickHandler() {
 	          public void onClick(ClickEvent event) {
 	                 // errorLabel.setText("Too short!");
-	        	  ContactInfo info = new ContactInfo();
+	        	  ContactInfo info = new ContactInfo( Integer.toString( Random.nextInt(10000) ));	        	    
 	        		info.setFirstName(tbName.getText());
 	        		info.setLastName("dfds sdfdsf");
 	        		info.setAddress("some address");
