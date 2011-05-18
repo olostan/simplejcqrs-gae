@@ -1,5 +1,9 @@
 package simplejcqrs.gae.client;
 
+import javax.jdo.PersistenceManager;
+
+import simplejcqrs.gae.server.PMF;
+
 import com.google.gwt.user.client.rpc.RemoteService;
 import com.google.gwt.user.client.rpc.RemoteServiceRelativePath;
 
@@ -8,5 +12,6 @@ import com.google.gwt.user.client.rpc.RemoteServiceRelativePath;
  */
 @RemoteServiceRelativePath("greet")
 public interface GreetingService extends RemoteService {
-	String greetServer(String name) throws IllegalArgumentException;
+	String greetServer(String name) throws IllegalArgumentException;	
+	
 }

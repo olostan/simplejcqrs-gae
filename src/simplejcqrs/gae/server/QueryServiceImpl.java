@@ -25,7 +25,7 @@ public class QueryServiceImpl extends RemoteServiceServlet implements
 			try {	
 				List<ContactInfo> results = (List<ContactInfo>) query.execute();
 				if (!results.isEmpty()) {
-					infos = results.toArray(emptyContacts);
+					infos = results.toArray(new ContactInfo[results.size()]);
 				}
 			} finally {
 				query.closeAll();

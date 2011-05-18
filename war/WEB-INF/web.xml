@@ -14,6 +14,10 @@
     <servlet-name>queryServlet</servlet-name>
     <servlet-class>simplejcqrs.gae.server.QueryServiceImpl</servlet-class>
   </servlet>
+  <servlet>
+    <servlet-name>commandServlet</servlet-name>
+    <servlet-class>simplejcqrs.gae.server.CommandServiceImpl</servlet-class>
+  </servlet>
   
   <servlet-mapping>
     <servlet-name>greetServlet</servlet-name>
@@ -22,6 +26,10 @@
   <servlet-mapping>
     <servlet-name>queryServlet</servlet-name>
     <url-pattern>/simplejcqrs_gae/query</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>commandServlet</servlet-name>
+    <url-pattern>/simplejcqrs_gae/command</url-pattern>
   </servlet-mapping>
   
   <!-- Default page to serve -->
