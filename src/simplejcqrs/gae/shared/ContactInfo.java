@@ -32,14 +32,14 @@ public class ContactInfo implements Comparable<ContactInfo>, IsSerializable {
 
     @PrimaryKey
     @Persistent(valueStrategy = IdGeneratorStrategy.IDENTITY)
-    private String id;
+    private long id;
     
     @Persistent
     private String lastName;
 
     public ContactInfo() {           
     }
-    public ContactInfo(String id) {
+    public ContactInfo(long id) {
     	this.id = id;
     }
     
@@ -86,7 +86,7 @@ public class ContactInfo implements Comparable<ContactInfo>, IsSerializable {
     /**
      * @return the unique ID of the contact
      */
-    public String getId() {
+    public long getId() {
       return this.id;
     }
     
@@ -99,7 +99,8 @@ public class ContactInfo implements Comparable<ContactInfo>, IsSerializable {
     
     @Override
     public int hashCode() {
-      return id.hashCode();
+      //return id.hashCode();
+    	return (int)id;
     }
     /**
      * Set the contact's address.

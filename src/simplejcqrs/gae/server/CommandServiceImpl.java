@@ -4,6 +4,7 @@ import java.util.Random;
 
 import javax.jdo.PersistenceManager;
 
+import simplejcqrs.commands.Command;
 import simplejcqrs.gae.client.CommandService;
 import simplejcqrs.gae.shared.ContactInfo;
 
@@ -12,6 +13,7 @@ import com.google.gwt.user.server.rpc.RemoteServiceServlet;
 public class CommandServiceImpl extends RemoteServiceServlet implements
 		CommandService {
 
+	/*
 	@Override
 	public void CreateContact(String firstName, String secondName) {
 		ContactInfo info = new ContactInfo(Integer.toString((new Random()).nextInt()));
@@ -21,6 +23,12 @@ public class CommandServiceImpl extends RemoteServiceServlet implements
 		try {
 			pm.makePersistent(info);
 		}finally { pm.close(); }
+	}*/
+
+	@Override
+	public void Execute(Command command) {
+		SimpleJCQRS.getBus().send(command);
+		
 	}
 
 }

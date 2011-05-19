@@ -17,6 +17,7 @@ package simplejcqrs.gae.client;
 
 import java.util.Date;
 
+import simplejcqrs.commands.HumanCommands;
 import simplejcqrs.gae.shared.ContactInfo;
 
 import com.google.gwt.cell.client.AbstractCell;
@@ -239,10 +240,9 @@ public class CwCellList extends Composite {
 	      addButton.addClickHandler(new ClickHandler() {
 	          public void onClick(ClickEvent event) {
 	              // errorLabel.setText("Too short!");
-	        	  
-	        	  
-	        	  ContactInfo info = new ContactInfo( Integer.toString( Random.nextInt(10000) ));	        	    
-	        		CommandSender.get().CreateContact(tbName.getText(), "second", new AsyncCallback<Void>() {						
+	        	  long id = Random.nextInt(10000000);
+	        	  HumanCommands.RegisterHuman cmd = new HumanCommands.RegisterHuman(id,tbName.getText(), "asdasd");        	    
+	        		CommandSender.get().Execute(cmd, new AsyncCallback<Void>() {						
 						@Override
 						public void onSuccess(Void result) {
 			        		hide();							
