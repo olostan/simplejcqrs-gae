@@ -1,0 +1,1 @@
+This is frontend to SimpleJCQRS (https://github.com/olostan/simplejcqrs) using Google Web Toolkit and Google Apps Engine
