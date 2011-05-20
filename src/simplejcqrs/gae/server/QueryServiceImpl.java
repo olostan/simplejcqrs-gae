@@ -15,7 +15,7 @@ import com.google.gwt.user.server.rpc.RemoteServiceServlet;
 @SuppressWarnings("serial")
 public class QueryServiceImpl extends RemoteServiceServlet implements
 		QueryService {
-
+		
 	private final static ContactInfo[] emptyContacts = new ContactInfo[0];
 	@Override
 	public ContactInfo[] GetContacts() {

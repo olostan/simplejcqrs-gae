@@ -18,9 +18,17 @@ import com.google.inject.name.Names;
 
 public final class SimpleJCQRS 
 {
+	private static void  ensureCreated() {
+		if (injector==null) injector = Guice.createInjector(new GAEModule());
+		if (bus==null) {			
+			bus = createBus();
+			GAEEventStore store = injector.getInstance(GAEEventStore.class);
+			store.publishAllEvents(bus);
+		}
+	}
 	private static EventBus bus;
 	public static EventBus getBus() {
-		if (bus==null) bus = createBus();
+		ensureCreated();
 		return bus;
 	}
 	
@@ -37,23 +45,20 @@ public final class SimpleJCQRS
 	}	
 	private static Injector injector = null;
 	public static Injector getInjector() {
-		if (injector == null) {
-			injector = Guice.createInjector(new GAEModule());
-		}
+		ensureCreated();
 		return injector;
 	}
 	
 	private static EventBus createBus() {
-		Injector inj = getInjector();
+		Injector inj = injector;
 		EventBus bus  = inj.getInstance(EventBus.class);		  
 		TypeLiteral<Set<Object>> t = new TypeLiteral<Set<Object>>() {};
 		
 		Set<Object> handlers = injector.getInstance(Key.get(t,CommandHandler.class));
 		for (Object handler : handlers) {
 			bus.registerHandler(handler);
-		}
-		
-		bus.registerHandler(inj.getInstance(QueryHandlers.class));
+		}		
+		bus.registerHandler(inj.getInstance(QueryHandlers.class));		
 		return bus;
 	}
 	

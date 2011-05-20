@@ -26,9 +26,10 @@ public class ContactInfo implements Comparable<ContactInfo>, IsSerializable {
     @Persistent
     private String address;
     @Persistent
-    private Date birthday;
-    @Persistent
     private String firstName;
+    
+    @Persistent
+    private int originalVersion=-1;
 
     @PrimaryKey
     @Persistent(valueStrategy = IdGeneratorStrategy.IDENTITY)
@@ -61,12 +62,6 @@ public class ContactInfo implements Comparable<ContactInfo>, IsSerializable {
      */
     public String getAddress() {
       return address;
-    }
-    /**
-     * @return the contact's birthday
-     */
-    public Date getBirthday() {
-      return birthday;
     }
            
     /**
@@ -102,41 +97,24 @@ public class ContactInfo implements Comparable<ContactInfo>, IsSerializable {
       //return id.hashCode();
     	return (int)id;
     }
-    /**
-     * Set the contact's address.
-     *
-     * @param address the address
-     */
     public void setAddress(String address) {
       this.address = address;
-    }
-    
-    /**
-     * Set the contact's birthday.
-     *
-     * @param birthday the birthday
-     */
-    public void setBirthday(Date birthday) {
-      this.birthday = birthday;
-    }
+    }   
     
    
-    /**
-     * Set the contact's first name.
-     *
-     * @param firstName the firstName to set
-     */
     public void setFirstName(String firstName) {
       this.firstName = firstName;
     }
     
-    /**
-     * Set the contact's last name.
-     *
-     * @param lastName the lastName to set
-     */
     public void setLastName(String lastName) {
       this.lastName = lastName;
     }
+    
+	public int getOriginalVersion() {
+		return originalVersion;
+	}
+	public void setOriginalVersion(int originalVersion) {
+		this.originalVersion = originalVersion;
+	}
 
 }

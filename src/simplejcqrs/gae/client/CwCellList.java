@@ -15,8 +15,6 @@
  */
 package simplejcqrs.gae.client;
 
-import java.util.Date;
-
 import simplejcqrs.commands.HumanCommands;
 import simplejcqrs.gae.shared.ContactInfo;
 
@@ -128,6 +126,7 @@ public class CwCellList extends Composite {
    */
   @UiField
   RangeLabelPager rangeLabelPager;
+  @UiField ContactForm contactForm;
 
   /**
    * The CellList.
@@ -168,7 +167,7 @@ public class CwCellList extends Composite {
     
     selectionModel.addSelectionChangeHandler(new SelectionChangeEvent.Handler() {
       public void onSelectionChange(SelectionChangeEvent event) {
-        //contactForm.setContact(selectionModel.getSelectedObject());
+        contactForm.setContact(selectionModel.getSelectedObject());
       }
     });
 
@@ -195,6 +194,7 @@ public class CwCellList extends Composite {
     
         }
     }); 
+    ContactDatabase.get().loadContacts();
     return widget;
   }
   

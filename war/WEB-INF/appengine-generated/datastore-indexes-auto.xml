@@ -1,4 +1,15 @@
-<!-- Indices written at Wed, 18 May 2011 22:19:31 UTC -->
+<!-- Indices written at Fri, 20 May 2011 01:15:38 UTC -->
 
-<datastore-indexes/>
+<datastore-indexes>
 
+    <!-- Used 1 time in query history -->
+    <datastore-index kind="event" ancestor="true" source="auto">
+        <property name="av" direction="asc"/>
+    </datastore-index>
+
+    <!-- Used 1 time in query history -->
+    <datastore-index kind="event" ancestor="true" source="auto">
+        <property name="av" direction="desc"/>
+    </datastore-index>
+
+</datastore-indexes>

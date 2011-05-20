@@ -1,0 +1,22 @@
+<!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
+	xmlns:g="urn:import:com.google.gwt.user.client.ui">
+	<ui:style>
+		.important {
+			font-weight: bold;
+		}
+	</ui:style>	
+	<g:HTMLPanel>
+		<g:Grid width="128px" height="61px">
+			<g:row>
+				<g:customCell>
+					<g:TextBox ui:field="tbName"/>
+				</g:customCell>
+				<g:customCell>
+					<g:Button ui:field="btnRename">Rename</g:Button>
+				</g:customCell>
+			</g:row>
+		</g:Grid>
+		<g:Label text="..." ui:field="lblData"/>	
+	</g:HTMLPanel>
+</ui:UiBinder> 
